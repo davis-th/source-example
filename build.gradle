@@ -37,3 +37,5 @@ dependencies {
 
 // Define the main class for the application
 mainClassName = 'source.example.App'
+
+group = "com.source:example"
