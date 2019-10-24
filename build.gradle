@@ -13,9 +13,16 @@ plugins {
 
 repositories {
     jcenter()
+    maven { url "https://github.com/davis-th/source-example/raw/master/artifacts" }
 }
 
 dependencies {
+    compile 'org.gradle.sample:project1-sample:1.1'
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    compile('com.google.code.gson:gson:2.8.5')
+
+    compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.5')
+    compile('joda-time:joda-time:2.3')
 }
 
 // Define the main class for the application
@@ -28,7 +35,7 @@ publishing {
         myPublication(MavenPublication) {
             groupId = 'org.gradle.sample'
             artifactId = 'project1-sample'
-            version = '1.2'
+            version = '1.4'
 
             // telling gradle to publish project's jar archive (2)
             from components.java
@@ -37,7 +44,7 @@ publishing {
     // telling gradle to publish artifact to local directory (3)
     repositories {
         maven {
-            url "file:/${project.projectDir}/artifacts"
+            url "file:/${project.projectDir}/lib"
         }
     }
 }
